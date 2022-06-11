@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 from pathlib import Path
 import tensorflow as tf
-from keras import backend as K
+from tensorflow.keras import backend as K
 
 from .s3fd.s3fd_detector import S3FD
 from .mtcnn.mtcnn_detector import MTCNN
@@ -50,7 +50,7 @@ class FaceAlignmentDetector(BaseFaceDetector):
         elif fd_type.lower() == "mtcnn":
             self.fd = MTCNNFaceDetector()
         else:
-            raise ValueError(f"Unknown face detector {face_detector}.")
+            raise ValueError(f"Unknown face detector {self.face_detector}.")
         
         self.lmd_weights_path = lmd_weights_path
         self.lmd = None

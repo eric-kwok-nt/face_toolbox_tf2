@@ -1,5 +1,6 @@
-from keras.models import *
-from keras.layers import *
+import tensorflow.keras.backend as K
+from tensorflow.keras.models import *
+from tensorflow.keras.layers import *
 import tensorflow as tf
 
 class L2Norm(Layer):
@@ -8,7 +9,7 @@ class L2Norm(Layer):
     '''
     def __init__(self, weights=None, axis=-1, gamma_init='zero', n_channels=256, scale=10, **kwargs):
         self.axis = axis
-        self.gamma_init = initializers.get(gamma_init)
+        self.gamma_init = tf.keras.initializers.get(gamma_init)
         self.initial_weights = weights
         self.n_channels = n_channels
         self.scale = scale
@@ -17,7 +18,7 @@ class L2Norm(Layer):
     def build(self, input_shape):
         self.input_spec = [InputSpec(shape=input_shape)]
         self.gamma = K.variable(self.gamma_init((self.n_channels,)), name='{}_gamma'.format(self.name))
-        self.trainable_weights = [self.gamma]
+        self._trainable_weights = [self.gamma]
         self.built = True
 
     def call(self, x, mask=None):

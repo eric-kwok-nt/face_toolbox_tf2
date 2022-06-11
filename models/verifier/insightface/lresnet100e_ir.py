@@ -1,5 +1,5 @@
-from keras.layers import *
-from keras.models import Model
+from tensorflow.keras.layers import *
+from tensorflow.keras.models import Model
 
 def batchnorm(x, name):
     return BatchNormalization(momentum=0.9, epsilon=2e-5, name=name)(x)

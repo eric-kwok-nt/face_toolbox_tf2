@@ -4,7 +4,7 @@ Code modified from https://github.com/1adrianb/face-alignment
 import cv2
 import numpy as np
 import tensorflow as tf
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from pathlib import Path
 
 FILE_PATH = str(Path(__file__).parent.resolve())

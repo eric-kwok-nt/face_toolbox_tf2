@@ -1,12 +1,14 @@
-# face-toolbox-keras
+# face-toolbox-tf2
 
-A collection of deep learning frameworks ported to Keras for face detection, face segmentation, face parsing, iris detection, and face verification. 
+A collection of deep learning frameworks ported to TF2 for face detection, face segmentation, face parsing, iris detection, and face verification. 
 
-![](https://github.com/shaoanlu/face-toolbox-keras/raw/master/examples.jpg)
+**Note: This repo modifies the original by upgrading from running on `keras 2.2.4` and `tensorflow 1` to `tensorflow 2`.**
+
+![examples](https://github.com/eric-kwok-nt/face_toolbox_tf2/blob/master/examples.jpg)
 
 ## Descriptions
 
-This repository contains deep learning frameworks that we collected and ported to Keras. We wrapped those models into separate modules that aim to provide their functionality to users within 3 lines of code.
+This repository contains deep learning frameworks that we collected and ported to TF2. We wrapped those models into separate modules that aim to provide their functionality to users within 3 lines of code.
 
 - **Face detection:** 
   - S3FD model ported from [1adrianb/face-alignment](https://github.com/1adrianb/face-alignment).
@@ -28,7 +30,7 @@ This repository contains deep learning frameworks that we collected and ported t
 
 ## Usage
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shaoanlu/face-toolbox-keras/blob/master/demo.ipynb) (Please run `pip install keras==2.2.4` before initializaing models.)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/shaoanlu/face-toolbox-keras/blob/master/demo.ipynb) (Please run `pip install tensorflow==2.5.0` before initializaing models.)
  
 This colab demo requires a GPU instance. It demonstrates all face analysis functionalities above.
 
@@ -152,8 +154,12 @@ gender, age = gae.predict_gender_age(im, with_detection=True)
 It works fine on Colab at this point (2019/06/11) but for certain Keras/TensorFlow version, it throws errors loading `2DFAN-1_keras.h5` or `2DFAN-2_keras.h5`.
 
 ## Requirements
-- Keras 2.2.4
-- TensorFlow 1.12.0 or 1.13.1
+- gdown
+- ipykernel
+- matplotlib
+- numpy
+- opencv-python
+- Tensorflow==2.5.0
 
 ## Acknowledgments
 We learnt a lot from [1adrianb/face-alignment](https://github.com/1adrianb/face-alignment), [zllrunning/face-parsing.PyTorch](https://github.com/zllrunning/face-parsing.PyTorch), [swook/GazeML](https://github.com/swook/GazeML), [deepinsight/insightface](https://github.com/deepinsight/insightface), [davidsandberg/facenet](https://github.com/davidsandberg/facenet), and [ZhaoJ9014/face.evoLVe.PyTorch](https://github.com/ZhaoJ9014/face.evoLVe.PyTorch).
